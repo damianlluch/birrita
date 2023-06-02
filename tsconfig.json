@@ -5,18 +5,18 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": [
+      "es2017",
+      "dom",
+      "es2020"
+    ],
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
+    "resolveJsonModule": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
     "paths": {
       "@app/bootstrap": [
@@ -24,7 +24,7 @@
       ],
       "@app/bootstrap/*": [
         "libs/bootstrap/src/*"
-      ]
+      ],
     }
   }
 }

@@ -7,7 +7,7 @@ import { Response } from 'express';
 export class DispenserController {
   constructor(private readonly dispenserService: DispenserService) {}
 
-  @Post('/create-dispenser')
+  @Post('/')
   createDispenser(
     @Request() req: Request,
     @Res() res: Response,
