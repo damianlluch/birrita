@@ -1,24 +1,6 @@
 import { DispenserService } from './dispenser.service';
 import { CreateDispenserDTO } from './dto/dispenser.dto';
-import {
-  BadRequestException,
-  Body,
-  Controller,
-  Delete,
-  ForbiddenException,
-  forwardRef,
-  Get,
-  HttpStatus,
-  Inject,
-  NotFoundException,
-  Param,
-  Patch,
-  Post,
-  Query,
-  Req,
-  Request,
-  Res,
-} from '@nestjs/common';
+import { Body, Controller, HttpStatus, Post, Request, Res, } from '@nestjs/common';
 import { Response } from 'express';
 
 @Controller('/dispenser')
@@ -34,7 +16,7 @@ export class DispenserController {
     console.log('POST /collections');
     console.log('Body:', JSON.stringify(body));
     return res.status(HttpStatus.OK).json({
-      message: 'Dispenser Created',
+      message: 'Hello world!',
     });
   }
 }

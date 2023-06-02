@@ -15,10 +15,21 @@ provider:
     ENCRYPTION_KEY: ${env:ENCRYPTION_KEY}
     AUTH_REDIRECT_URI: ${env:AUTH_REDIRECT_URI}
 
+layers:
+  CommonNodeJS1:
+    path: layers
+    name: birrita-layer-dev-nodejs-1
+    description: Package api dependencies
+    package:
+      include:
+        - ./**
+
 functions:
   main:
-    handler: dist/lambda.handler
+    handler: dist/app/dispenser/main.handler
+    layers:
+      - !Ref CommonNodeJS1LambdaLayer
     events:
       - http:
-          method: any
-          path: /{any+}
+          method: POST
+          path: /create-dispenser

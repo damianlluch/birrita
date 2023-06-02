@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { MainController } from './main.controller';
-import { MainService } from './main.service';
+import { DispenserModule } from "../../dispenser/src/dispenser.module";
 
 @Module({
-  imports: [],
-  controllers: [MainController],
-  providers: [MainService],
+  imports: [
+    DispenserModule
+  ],
 })
 export class MainModule {}
