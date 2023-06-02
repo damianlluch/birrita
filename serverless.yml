@@ -1,0 +1,24 @@
+service: nest-birrita
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    MONGODB_URI: ${env:MONGODB_URI}
+    JWT_SECRET: ${env:JWT_SECRET}
+    JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}
+    ENCRYPTION_KEY: ${env:ENCRYPTION_KEY}
+    AUTH_REDIRECT_URI: ${env:AUTH_REDIRECT_URI}
+
+functions:
+  main:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          method: any
+          path: /{any+}
