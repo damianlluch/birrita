@@ -25,6 +25,12 @@
       "@app/bootstrap/*": [
         "libs/bootstrap/src/*"
       ],
+      "@app/database": [
+        "libs/database/src"
+      ],
+      "@app/database/*": [
+        "libs/database/src/*"
+      ]
     }
   }
 }
