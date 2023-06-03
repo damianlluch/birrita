@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-import { DispenserModule } from "../../dispenser/src/dispenser.module";
+import { DispenserModule } from '../../dispenser/src/dispenser.module';
 
 @Module({
-  imports: [
-    DispenserModule
-  ],
+  imports: [DispenserModule],
 })
 export class MainModule {}
