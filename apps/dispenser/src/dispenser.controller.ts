@@ -15,15 +15,21 @@ export class DispenserController {
   constructor(private readonly dispenserService: DispenserService) {}
 
   @Post('/')
-  createDispenser(
+  async createDispenser(
     @Request() req: Request,
     @Res() res: Response,
     @Body() body: CreateDispenserDTO,
   ) {
     console.log('POST /collections');
     console.log('Body:', JSON.stringify(body));
-    return res.status(HttpStatus.OK).json({
-      message: 'Hello world!',
-    });
+    try {
+      const dispenserCreated = await this.dispenserService.create(body);
+      return res.status(HttpStatus.OK).json({
+        message: 'Hello world!',
+        dispenser: dispenserCreated,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
