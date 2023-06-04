@@ -21,7 +21,7 @@ export class DispenserController {
     @Res() res: Response,
     @Body() body: CreateDispenserDTO,
   ) {
-    console.log('POST /collections');
+    console.log('POST /');
     console.log('Body:', JSON.stringify(body));
     try {
       const dispenser: Dispenser = {
