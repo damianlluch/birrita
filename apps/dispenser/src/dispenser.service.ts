@@ -12,15 +12,16 @@ export class DispenserService {
     @InjectConnection() private readonly connection: Connection,
   ) {}
   async create(
-    dispenser: CreateDispenserInterface,
+    dispenser: Dispenser | CreateDispenserInterface,
   ): Promise<DispenserDocument> {
     try {
       let dispenserCreated;
       const session = await this.connection.startSession();
       await session.withTransaction(async () => {
         dispenserCreated = (
-          await this.dispenserModel.create([dispenser], { session }))[0];
-      })
+          await this.dispenserModel.create([dispenser], { session })
+        )[0];
+      });
       await session.endSession();
       return dispenserCreated;
     } catch (e) {

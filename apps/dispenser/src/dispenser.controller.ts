@@ -9,7 +9,7 @@ import {
   Res,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { DispenserDocument } from "./schemas/dispenser.schema";
+import { Dispenser, DispenserDocument } from './schemas/dispenser.schema';
 
 @Controller('/dispenser')
 export class DispenserController {
@@ -24,7 +24,15 @@ export class DispenserController {
     console.log('POST /collections');
     console.log('Body:', JSON.stringify(body));
     try {
-      const dispenserCreated: DispenserDocument = await this.dispenserService.create(body);
+      const dispenser: Dispenser = {
+        ...new Dispenser(),
+        ...body,
+        flow_volume: body.flor_volume,
+        price: body.price,
+      };
+
+      const dispenserCreated: DispenserDocument =
+        await this.dispenserService.create(dispenser);
       return res.status(HttpStatus.OK).json({
         message: 'Hello world!',
         dispenser: dispenserCreated,
